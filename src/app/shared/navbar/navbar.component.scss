@@ -1,0 +1,19 @@
+#nav {
+    background-color: #005711;
+    height: 13vh;
+    width: 100%;
+}
+button {
+    background-color: transparent;
+    border: none;
+    height: 30%;
+}
+.spaceElment{
+    justify-content: flex-start;
+}
+@media (max-width: 767px) {
+    .spaceElment{
+        justify-content: space-between;
+    }
+}
+

@@ -1,0 +1,14 @@
+<div *ngIf="!this.showCard; else cards">
+    <app-no-recipe-message></app-no-recipe-message>
+</div>
+
+<ng-template #cards>
+    <div class=" container my-3 " style="margin: auto;">
+        <h1 class=" text-center">Recetas disponibles</h1>
+        <div class="jumbotron shadow p-2 m-3" style="cursor: pointer;" [routerLink] = "['detail/recipes/', 0]">
+            <app-jumbotron-food [recipe]="recipePrincipal"></app-jumbotron-food>
+        </div>
+        <app-search-food (onDebounce)="filterRecipesForName($event)" class="m-3"></app-search-food>
+        <app-card-food [RecipesFood]="recipesFood"></app-card-food>
+    </div>
+</ng-template>

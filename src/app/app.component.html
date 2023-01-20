@@ -1,0 +1,10 @@
+<app-navbar (stausSidebar)="showHiddenSidebar($event)"></app-navbar>
+
+<div class="d-flex" id="wrapper">
+
+    <app-sidebar [status]="statusSidebar"></app-sidebar>
+    
+    <div id="page-content-wrapper" class=" p-4">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class=" d-flex flex-wrap align-items-lg-start justify-content-center mt-3 "
+    style="gap: 20px;"  >
+    <a [routerLink] = "['detail/recipes/', i]" style="text-decoration: none; color: black;" *ngFor="let recipe of RecipesFood; let i = index" >
+        <div class="card shadow" style="width: 18rem;">
+            <img class="card-img-top"
+                [src]="recipe.image"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{recipe.title}}</h5>
+                <p class="card-text">{{recipe.description}}</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+

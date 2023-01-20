@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+// bootstrap style toast
+// or import a bootstrap 4 alert styled design (SASS ONLY)
+
+img {
+    object-fit: cover;
+    height: 100%;
+}
+
+#sidebar-wrapper {
+    min-height: 87vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+    height: 87vh;
+    overflow-y: scroll;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .show {
+        margin-left: 0 !important;
+    }
+
+    .hide {
+        margin-left: -15rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .show {
+        margin-left: -15rem !important;
+    }
+
+    .hide {
+        margin-left: -0 !important;
+    }
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #049221;
+    outline: 0;
+    box-shadow: 0 0 0 0.12rem #318334;
+}
+

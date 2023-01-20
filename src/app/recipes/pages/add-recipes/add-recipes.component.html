@@ -1,0 +1,63 @@
+<div class="shadow m-2">
+  <h2 class="text-center">Agregue una nueva receta</h2>
+  <form class="p-2" [formGroup]="formRecipe" (ngSubmit)="submit()" autocomplete="off">
+    <div class="form-group mb-4">
+      <label for="title">Titulo</label>
+      <input type="text" class="form-control" id="title" name="title" maxlength="50" formControlName="title" required>
+      <span class=" text-danger"
+        *ngIf="formRecipe.get('title')?.touched && formRecipe.get('title')?.errors?.['required']">
+        Esta campo es requerido
+      </span>
+    </div>
+    <div class="form-group mb-4">
+      <label for="description">Descripción</label>
+      <textarea class="form-control" id="description" name="description" rows="3" maxlength="250"
+        formControlName="description" required></textarea>
+      <span class=" text-danger"
+        *ngIf="formRecipe.get('description')?.touched && formRecipe.get('description')?.errors?.['required']">
+        Esta campo es requerido
+      </span>
+    </div>
+    <div class="form-group mb-4">
+      <label for="image">Imagen</label>
+      <input type="url" class="form-control form" id="image" name="image" formControlName="image" required>
+      <span class=" text-danger"
+        *ngIf="formRecipe.get('image')?.touched && formRecipe.get('image')?.errors?.['required']">
+        Esta campo es requerido
+      </span>
+    </div>
+    <div class="form-group mb-4">
+      <label for="ingredients">Ingredientes</label>
+      <div formArrayName="ingredients" *ngFor="let  ingredient of ingredients.controls; let i = index ">
+        <div [formGroupName]="i" >
+
+          <div class="d-flex mt-2" style="gap: 10px;">
+            <input type="text" class="form-control" id="nameIngredients" name="nameIngredients"
+              formControlName="nameIngredient" maxlength="100">
+            <button (click)="addIngredients()" class="btn btn-success"
+              *ngIf="this.formRecipe.value.ingredients?.length == i + 1; else deleteButton">
+              <svg xmlns="http://www.w3.org/2000/svg" style="color: rgb(255, 255, 255);" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg>
+            </button>
+            <ng-template #deleteButton>
+              <button (click)="removeIngredients(i)" class="btn btn-danger">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: rgb(255, 255, 255);" width="16" height="16"
+                  fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path
+                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                  <path fill-rule="evenodd"
+                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                </svg>
+              </button>
+            </ng-template>
+          </div>
+          <span class=" text-danger" *ngIf=""> Esta campo es requerido </span>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Agregar receta</button>
+  </form>
+</div>
